@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Author Details{% endblock %}
+
+{% block body %}
+    <h1>Author Details</h1>
+
+    <dl>
+        <dt>ID:</dt>
+        <dd>{{ author.id }}</dd>
+
+        <dt>Name:</dt>
+        <dd>{{ author.username }}</dd>
+
+        <dt>Email:</dt>
+        <dd>{{ author.email }}</dd>
+
+        <dt>Number of Books:</dt>
+        <dd>{{ author.nb_books }}</dd>
+    </dl>
+<img src="{{ asset(author.photo) }}" alt="{{ author.username }}'s Photo" width="200" height="200">
+    <a href="{{ path('list_author') }}">Back to Author List</a>
+{% endblock %}

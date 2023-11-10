@@ -1,0 +1,31 @@
+<table border="1">
+    <tr>
+        <td>title</td>
+        <td>published</td>
+        <td>category</td>
+        <td>publicationDate</td>
+        <td>author</td>
+        <td>nbrBooks</td>
+        <td>Edit</td>
+        <td>Delete</td>
+        <td>details</td>
+    </tr>
+    {% for b in publishedBooks %}
+    <tr>
+        
+        <td>{{ b.title }}</td>
+        <td>{{ b.published }}</td>
+        <td>{{b.category}}</td>
+        <td>{{ b.publicationDate | date("Y-m-d")}}</td>
+        <td>{{b.author.Username}}</td>
+        <td>{{b.author.nbrBooks}}</td>
+        <td><a href="{{path('updateB', {ref:b.ref})}}">edit</a></td>
+        <td><a href="{{path('deleteB', {ref:b.ref})}}">delete</a></td>
+        <td><a href="{{path('detB', {ref:b.ref})}}">show</a></td>
+
+    </tr>
+    {% endfor %}
+    <p>Number of published books : {{nbPublishedBooks}}</p>
+    <p>Number of unpublished books : {{nbUnpublishedBooks}}</p>
+
+</table>
